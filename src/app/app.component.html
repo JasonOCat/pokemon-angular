@@ -2,7 +2,7 @@
 <!-- pousser la valeur dans l'interpolation côté template dans angular lors que l'évènement key up est intercepté -->
 <input
     #input
-    (keyup)="selectPokemon(input.value)" 
+    (keyup.enter)="selectPokemon(input.value)" 
     type="number"
 />
 <p> Le pokemon que vous avez demandé : {{pokemonSelected?.name}}</p>
