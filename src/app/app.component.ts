@@ -4,7 +4,7 @@ import { Pokemon } from './pokemon';
 
 @Component({
   selector: 'app-root',
-  template: `Liste de pokemons`
+  templateUrl: 'app.component.html'
 })
 export class AppComponent implements OnInit {
 
