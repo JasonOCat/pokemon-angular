@@ -1,18 +1,20 @@
-<h1>Liste de pokemons</h1>
-<!-- pousser la valeur dans l'interpolation côté template dans angular lors que l'évènement key up est intercepté -->
-<input
-    #input
-    (keyup.enter)="selectPokemon(input.value)" 
-    type="number"
-/>
-<p *ngIf="pokemonSelected">
-    Le pokemon que vous avez demandé : {{ pokemonSelected.name }}
-</p>
-<p *ngIf="!pokemonSelected">
-    Aucun pokemon n'a été trouvé.
-</p>
+<div class="container">
+    <h1 class="center">Liste de pokemons</h1>
 
-<p *ngFor="let pokemon of pokemonList">
-    {{ pokemon.name }}
-</p>
+    <div class="row">
+        <div class="col m4 s6" *ngFor="let pokemon of pokemonList">
+                <div class="card horizontal">
+                    <div class="card-image">
+                        <img [src]="pokemon.picture"/>
+                    </div>
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <p>{{ pokemon.name }}</p>
+                            <p>{{ pokemon.created }}</p>
+                        </div>
+                    </div>
+                </div>        
+            </div>
+        </div>
+</div>
 
