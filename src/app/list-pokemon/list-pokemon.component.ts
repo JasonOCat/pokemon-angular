@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Pokemon } from '../pokemon';
+import { POKEMONS } from '../mock-pokemon-list';
 
 @Component({
   selector: 'app-list-pokemon',
@@ -7,5 +9,7 @@ import { Component } from '@angular/core';
   ]
 })
 export class ListPokemonComponent {
+
+  pokemonList: Pokemon[] = POKEMONS;
 
 }
