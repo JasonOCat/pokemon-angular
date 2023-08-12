@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { Pokemon } from './pokemon';
 import { POKEMONS } from './mock-pokemon-list';
 
-@Injectable({
-  providedIn: 'root' // means instanciation done by angular, singleton bean
-})
+@Injectable()
 export class PokemonService {
 
   getPokemonList(): Pokemon[] {
