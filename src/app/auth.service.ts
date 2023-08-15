@@ -10,7 +10,7 @@ export class AuthService {
   redirectUrl: string;
 
   login(name: string, password: string): Observable<boolean> {
-    const isLoggedIn = (name == 'pkachu' && password == 'pikachu');
+    const isLoggedIn = (name == 'pikachu' && password == 'pikachu');
 
     return of(isLoggedIn).pipe(
       delay(1000),
