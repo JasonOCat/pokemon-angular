@@ -3,6 +3,10 @@
 
         <app-search-pokemon class="center"></app-search-pokemon>
 
+        <h4 *ngIf='!pokemonList' class="center">
+            <app-loader></app-loader>
+        </h4>
+
         <div class="col m4 s6" *ngFor="let pokemon of pokemonList">
             <div (click)="goToPokemon(pokemon)" class="card horizontal" pkmnBorderCard="red">
                 <div class="card-image">
