@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Pokemon } from './pokemon';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, of, tap } from 'rxjs';
 
@@ -16,14 +16,26 @@ export class PokemonService {
     );
   }
 
-  getPokemonById(pokemonId: number): Observable<Pokemon|undefined> {
+  getPokemonById(pokemonId: number): Observable<Pokemon|undefined> { 
     return this.http.get<Pokemon>(`api/pokemons/${pokemonId}`).pipe(
+      tap(pokemon => this.log(pokemon)),
+      catchError(error => this.handleError(error, null))
+    );
+  }
+
+    // updatePokemon(pokemon: Pokemon): Observable<Pokemon|undefined> { 
+  updatePokemon(pokemon: Pokemon): Observable<null> { // null because the api HttpClientModule returns always null for an update
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+    };
+
+    return this.http.put('api/pokemons', pokemon, httpOptions).pipe(
       tap(pokemon => this.log(pokemon)),
       catchError(error => this.handleError(error, undefined))
     );
   }
 
-  private log(response: Pokemon[]|Pokemon|undefined) {
+  private log(response: any) {
     console.table(response);
   }
 
