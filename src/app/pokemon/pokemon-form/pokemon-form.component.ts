@@ -43,4 +43,14 @@ export class PokemonFormComponent implements OnInit {
     this.router.navigate(['/pokemon', this.pokemon.id]);
   }
 
+  isTypeValid(type: string): boolean {
+    if (this.pokemon.types.length == 1 && this.hasType(type)) {
+      return false;
+    } else if (this.pokemon.types.length > 2 && !this.hasType(type)) {
+      return false;
+    }
+
+    return true;
+  }
+
 }
